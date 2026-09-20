@@ -22,3 +22,7 @@ Claude Skill مستقل كلياً — يبني مستند تسليم/تنسيق
 
 - `SKILL.md` — تعريف الـSkill.
 - `releases/v1/structured-handover-doc.skill` — الحزمة الجاهزة للرفع والتفعيل.
+
+## Report an Issue / Feedback
+
+Found a bug or have a suggestion? Please open a GitHub Issue in this repository: https://github.com/msamkari/structured-handover-doc-skill/issues
