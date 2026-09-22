@@ -1,27 +1,28 @@
-# structured-handover-doc
+structured-handover-doc
 
-Claude Skill مستقل كلياً — يبني مستند تسليم/تنسيق منظّم (Structured Handover Document) لأي حالة أو مشروع أو رحلة، من سياق متفرق بمحادثة واحدة (رسائل، مستندات، صور)، بصيغة موحدة جاهزة للمشاركة مع طرف ثالث.
+A fully independent Claude Skill — builds a structured handover/coordination document (Structured Handover Document) for any situation, project, or trip, from context scattered across a single conversation (messages, documents, images), into one unified format ready to share with a third party.
 
-## البنية
+## Structure
 
-الناتج Claude Doc بعنوان "[Subject] – [Domain] Handover"، بخمسة أقسام ثابتة الترتيب (تُعاد تسميتها حسب الدومين):
+The output is a Claude Doc titled "[Subject] – [Domain] Handover", with five sections in a fixed order (renamed to fit the domain):
 
-1. الموقف والتاريخ
-2. الخطة الحالية
-3. الأشخاص المعنيون
-4. الجدول الزمني والمواعيد الرئيسية
-5. البنود المعلّقة
+1. Situation & History
+2. Current Plan
+3. People Involved
+4. Schedule & Key Dates
+5. Outstanding Items
 
-ينتهي دائماً بتعليق واحد محدد على المستند (لا سؤال بالشات).
+Always ends with one specific comment on the document (never a question in the chat).
 
-## الاستقلالية
+## Independence
 
-لا يعتمد على أي Skill ثاني، ولا على أي بنية ذاكرة ثابتة أخرى. يبني المستند من سياق المحادثة الحالية فقط.
+Does not depend on any other Skill, or on any persistent-memory structure. Builds the document from the current conversation's context only.
 
-## الملفات
+## Files
 
-- `SKILL.md` — تعريف الـSkill.
-- `releases/v1/structured-handover-doc.skill` — الحزمة الجاهزة للرفع والتفعيل.
+- `SKILL.md` — the Skill's definition.
+- `LICENSE` — PolyForm Noncommercial License 1.0.0.
+- `releases/v1/structured-handover-doc.skill` — the packaged bundle, ready to upload and activate.
 
 ## Report an Issue / Feedback
 
