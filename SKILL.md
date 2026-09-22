@@ -1,84 +1,45 @@
 ---
 name: structured-handover-doc
-description: >
-  ابنِ مستند تسليم/تنسيق منظَّم (Structured Handover Document) كل ما احتاج
-  المستخدم يجمع سياقاً متفرقاً — رسائل، مستندات، صور، ملاحظات محادثة —
-  عن حالة أو مشروع أو رحلة، بصيغة موحدة جاهزة للمشاركة مع طرف ثالث: طبيب
-  أو مقدّم رعاية، فريق عمل يستلم مهمة، شريك سفر، مدير جديد. فعّله فوراً
-  كلما طلب المستخدم "مستند تسليم"، "handover doc"، "خلّص لي الوضع عشان
-  أشاركه مع..."، "جهّز ملف تسليم"، "لخّص هذا المشروع لمين بيكمل بعدي"، أو
-  أي طلب مشابه لتحويل سياق متناثر عن حالة/مشروع/رحلة لمستند منظم قابل
-  للمشاركة — حتى لو ما ذكر كلمة "Skill" أو "handover" حرفياً. لا يفترق
-  عن هذا: لا يتفعّل لملخص عادي داخل الشات، ولا لتقرير تحليلي، ولا لأي
-  طلب ما فيه نية تسليم/مشاركة مع طرف ثالث. مستقل كلياً — لا يعتمد على
-  أي Skill ثاني ولا أي بنية ذاكرة ثابتة، ويبني المستند من السياق المتاح
-  بالمحادثة الحالية فقط (رسائل، ملفات، صور مرفقة).
+description: Build a structured handover document whenever the user needs to gather scattered context — messages, documents, images — about a situation, project, or trip, into one unified format ready to share with a third party — a doctor, a caregiver, a team, a travel companion, a new manager. Activate immediately for "handover doc", "handover document", "wrap up the situation so I can share it with...", "prepare a handoff file", "summarize this project for whoever continues after me", or any similar request to turn scattered context about a situation/project/trip into a structured, shareable document — even without literally saying "Skill" or "handover". Does not activate for an ordinary in-chat summary, an analytical report, or any request with no intent to hand off/share with a third party. Fully independent — no dependency on any other Skill or persistent-memory structure; builds the document from the current conversation's context only (messages, files, images).
 ---
 
 # Structured Handover Doc
 
-## الفكرة
+## The idea
 
-هذا الـSkill يحوّل سياقاً متفرقاً (رسائل، مستندات، صور) بمحادثة واحدة إلى
-مستند تسليم موحّد وجاهز للمشاركة مع طرف ثالث. الناتج دائماً Claude Doc —
-مو ملف، مو رد بالشات، مو Artifact.
+This Skill turns scattered context (messages, documents, images) within a single conversation into a unified handover document ready to share with a third party. The output is always a Claude Doc — not a file, not a chat reply, not an Artifact.
 
-## متى يتفعّل
+## When it activates
 
-فعّله فور طلب مستند تسليم/تنسيق لأي "حالة" بمعناها الواسع: حالة رعاية
-طبية، مشروع عمل يُسلَّم لشخص ثاني، رحلة سفر يشاركها المستخدم مع رفاقه،
-مهمة فريق تُسلَّم لعضو جديد، أو أي موقف مشابه فيه نية واضحة تجميع
-السياق ومشاركته مع طرف ثالث بصيغة واحدة منظمة. لا تتفعّل لطلب ملخص
-عادي بالشات بدون نية مشاركة، ولا لتقرير تحليلي أو مستند عمل عام —
-هذاك مجاله Claude Doc عادي بدون البنية الخماسية أدناه.
+Activate it as soon as a handover/coordination document is requested for any "situation" in the broad sense: a medical care situation, a work project being handed off to someone else, a trip the user is sharing with travel companions, a team task being handed off to a new member, or any similar situation with a clear intent to gather the context and share it with a third party in one organized format. Do not activate for an ordinary in-chat summary request with no intent to share, or for an analytical report or a general work document — those belong to an ordinary Claude Doc, without the five-part structure below.
 
-## خطوة أولى: تحديد Subject وDomain
+## First step: identify Subject and Domain
 
-قبل إنشاء المستند، حدّد من السياق:
+Before creating the document, determine from the context:
 
-- **Subject**: الشخص أو المشروع أو الرحلة موضوع التسليم (مثال: "أحمد"،
-  "ترحيل نظام الفوترة"، "رحلة إسطنبول").
-- **Domain**: نوع الحالة (مثال: Care Coordination، Project Status، Trip
-  Planning، Team Handoff، أو أي تسمية أدق تناسب السياق الفعلي).
+- **Subject**: the person, project, or trip that is the subject of the handover (example: "Ahmad", "Billing System Migration", "Istanbul Trip").
+- **Domain**: the type of situation (example: Care Coordination, Project Status, Trip Planning, Team Handoff, or any more precise label that fits the actual context).
 
-لو ما وضح Subject أو Domain من الطلب أو المحادثة، اسأل سؤالاً واحداً
-مباشراً قبل البدء بدل التخمين.
+If the Subject or Domain isn't clear from the request or the conversation, ask one direct question before starting, instead of guessing.
 
-## إنشاء المستند
+## Creating the document
 
-أنشئ Claude Doc بعنوان: **"[Subject] – [Domain] Handover"**.
+Create a Claude Doc titled: "[Subject] – [Domain] Handover".
 
-ابنِ المستند بخمسة أقسام، بهذا الترتيب الثابت. أعِد تسمية عناوين
-الأقسام الخمسة نفسها لتناسب الـDomain (مثال: بحالة رعاية طبية "الأشخاص
-المعنيون" تصير "فريق الرعاية"، وبرحلة سفر "الجدول الزمني والمواعيد
-الرئيسية" تصير "خط سير الرحلة")، بس البنية والترتيب المنطقي يبقى ثابت:
+Build the document with five sections, in this fixed order. Rename the five section headings themselves to fit the Domain (example: in a medical care situation "People Involved" becomes "Care Team", and in a trip "Schedule & Key Dates" becomes "Itinerary"), but the structure and logical order stay fixed:
 
-1. **الموقف والتاريخ (Situation & History)** — الموقف الأساسي، العوامل
-   المساهمة، وأي شي جُرِّب قبل كذا وما نفع — نقاط (bullets) مع ملاحظة
-   نتيجة مختصرة لكل محاولة سابقة.
-2. **الخطة الحالية (Current Plan)** — الخطة أو الجدول النشط حالياً،
-   مقسَّم لمراحل أو فترات زمنية واضحة (عناوين فرعية بولد)، كل واحدة
-   بقائمة نقاط خاصة بخطواتها.
-3. **الأشخاص المعنيون (People Involved)** — اسم أو دور واحد بولد لكل
-   مدخل، مع وظيفته بالموقف مباشرة بعده، وبيانات التواصل لو متوفرة.
-4. **الجدول الزمني والمواعيد الرئيسية (Schedule & Key Dates)** —
-   التواريخ والأوقات المؤكَّدة، وأي تعارض جدولة أو تغيير، مع حالته
-   الحالية (مؤكَّد، مؤجَّل، ملغي).
-5. **البنود المعلَّقة (Outstanding Items)** — اللي لسه ما انحسم أو
-   يحتاج متابعة، زائد سطر سياق طويل المدى واحد لو له صلة.
+1. **Situation & History** — the core situation, contributing factors, and anything tried before that didn't work — bullets, with a brief outcome note for each prior attempt.
+2. **Current Plan** — the currently active plan or schedule, broken into clear phases or time periods (bold subheadings), each with its own bullet list of steps.
+3. **People Involved** — one bolded name or role per entry, with their function in the situation right after it, and contact details if available.
+4. **Schedule & Key Dates** — confirmed dates and times, and any scheduling conflict or change, with its current status (confirmed, postponed, cancelled).
+5. **Outstanding Items** — what's still unresolved or needs follow-up, plus one longer-term context line if relevant.
 
-## قواعد المحتوى
+## Content rules
 
-- اسحب التفاصيل الفعلية من المعطى بالمحادثة (رسائل، مستندات، صور) فقط
-  — بدون اختراع أو استنتاج أي معلومة غير موجودة.
-- النبرة واضحة وواقعية، بدون حشو، وبدون تلخيص لما هو موجود أصلاً
-  بالنقاط — كل نقطة تُكتب مرة وحدة.
-- بدّل الكلمة أو المصطلح المفتاحي أول كل نقطة بولد (bold) لما يفيد
-  سهولة المسح البصري السريع.
+- Pull the actual details only from what's given in the conversation (messages, documents, images) — never invent or infer any information that isn't there.
+- Tone is clear and factual, no filler, and no re-summarizing of what's already stated in the bullets — each point is written once.
+- Bold the key word or term at the start of each bullet when it helps quick visual scanning.
 
-## الخطوة الأخيرة: سؤال واحد بتعليق على المستند
+## Final step: one question as a comment on the document
 
-لا تحط أي سؤال بالشات. بعد إنشاء المستند كاملاً، أضف تعليقاً (comment)
-واحداً عليه يطلب من المستخدم يأكّد نقطة معينة أو يختار بين خيارين
-محددين حول أهم نقطة غموض بالمستند — مو سؤال عام زي "هذا يعجبك؟" أو "فيه
-شي تبي تضيفه؟". السؤال لازم يكون محدد وقابل للإجابة بكلمة أو اختيار.
+Don't put any question in the chat. After the document is fully created, add exactly one comment on it asking the user to confirm a specific point or choose between two specific options about the document's most significant point of ambiguity — not a general question like "does this look good?" or "anything you'd like to add?". The question must be specific and answerable in a word or a choice.
