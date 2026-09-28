@@ -2,7 +2,7 @@ structured-handover-doc
 
 A fully independent Claude Skill — builds a structured handover/coordination document (Structured Handover Document) for any situation, project, or trip, from context scattered across a single conversation (messages, documents, images), into one unified format ready to share with a third party.
 
-*Open the repo and read exactly what this Skill does — no black box.*
+*Open the repo and read exactly what this Skill tells Claude to do — no black box.*
 
 ## Structure
 
@@ -29,6 +29,8 @@ Does not depend on any other Skill, or on any persistent-memory structure. Build
 ## License
 
 Source-available under PolyForm Noncommercial 1.0.0. Free for personal and other non-commercial use. See `LICENSE` for the full terms.
+
+Commercial use requires a separate license from the author. To discuss one, open an Issue (please don't post confidential details or personal contact information there; I'll reply with a way to continue privately).
 
 ## Report an Issue / Feedback
 
