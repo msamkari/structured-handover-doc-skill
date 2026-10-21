@@ -23,8 +23,16 @@ Does not depend on any other Skill, or on any persistent-memory structure. Build
 ## Files
 
 - `SKILL.md` — the Skill's definition.
+- `.claude-plugin/plugin.json` and `skills/structured-handover-doc/SKILL.md` — the Claude Code plugin packaging (the skill file is a copy of the root `SKILL.md`; keep them in sync).
 - `LICENSE` — PolyForm Noncommercial License 1.0.0.
 - `releases/v1/structured-handover-doc.skill` — the packaged bundle, ready to upload and activate.
+
+## Install as a plugin
+
+```
+/plugin marketplace add msamkari/persistent-memory-system-skill
+/plugin install structured-handover@samkari-plugins
+```
 
 ## License
 
