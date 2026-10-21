@@ -1,0 +1,10 @@
+{
+  "name": "structured-handover",
+  "version": "1.0.0",
+  "description": "Build a Structured Handover Document: turn scattered context (messages, documents, images) about a situation, project or trip into one unified, shareable handover doc.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "homepage": "https://github.com/msamkari/structured-handover-doc-skill",
+  "repository": "https://github.com/msamkari/structured-handover-doc-skill",
+  "keywords": ["handover", "handoff", "documentation"],
+  "author": { "name": "Mohammad Samkari", "url": "https://github.com/msamkari" }
+}
